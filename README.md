@@ -1,177 +1,162 @@
-````markdown
 # Customer Shopping Behavior Analysis
 
-## Overview
+**An end-to-end data analytics project: Python → MySQL → Power BI → Business Report**
 
-This project analyzes customer shopping behavior using 3,900 purchase records to identify patterns in customer spending, product preferences, subscription behavior, and purchasing trends.
+---
 
-The project follows an end-to-end data analytics workflow:
+## Table of Contents
 
-**Python → Data Cleaning & EDA → MySQL → SQL Analysis → Power BI Dashboard → Business Report → PDF**
+- [Project Overview](#project-overview)
+- [Business Objectives](#business-objectives)
+- [Dataset](#dataset)
+- [Tools and Technologies](#tools-and-technologies)
+- [Methodology](#methodology)
+- [Key Findings](#key-findings)
+- [Business Recommendations](#business-recommendations)
+- [Power BI Dashboard](#power-bi-dashboard)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Skills Demonstrated](#skills-demonstrated)
+- [Author](#author)
 
-The objective is to transform raw customer transaction data into meaningful business insights that can support data-driven decision-making.
+---
+
+## Project Overview
+
+This project analyzes **3,900 customer purchase records** to uncover patterns in spending, product preferences, subscription behavior, and purchasing trends. The goal is to turn raw transaction data into clear, actionable business insights that support data-driven decision-making.
+
+The workflow spans the full analytics lifecycle: data is cleaned and explored in Python, stored and queried in MySQL, visualized in an interactive Power BI dashboard, and summarized in a business report with recommendations.
+
+**Raw Dataset → Python (EDA and Cleaning) → MySQL → SQL Analysis → Power BI Dashboard → Business Report (PDF)**
+
+---
+
+## Business Objectives
+
+The analysis was designed to answer questions such as:
+
+- Which product categories and individual products drive the most revenue?
+- How do subscribers differ from non-subscribers in spending behavior?
+- How does purchasing behavior vary across age groups?
+- Which products depend most on discounts?
+- Which payment methods and shipping types do customers prefer?
+- Which customer segments are the most valuable?
 
 ---
 
 ## Dataset
 
-The dataset contains **3,900 rows and 18 columns**.
+| Attribute | Detail |
+|---|---|
+| File | `data/customer_shopping_Behaviour.csv` |
+| Records | 3,900 |
+| Columns | 18 |
+| Missing values | 37 (all in `Review Rating`) |
 
-Key information includes:
+The dataset captures the following information:
 
-- Customer demographics
-- Product and category details
-- Purchase amount
-- Subscription status
-- Payment method
-- Shipping type
-- Review ratings
-- Discount usage
-- Previous purchases
-- Purchase frequency
-- Season, size, and color
-
-The dataset initially contained 37 missing values in the `Review Rating` column.
-
----
-
-## Tools & Technologies
-
-- **Python** – Data loading, cleaning, feature engineering, and EDA
-- **Pandas** – Data manipulation and analysis
-- **MySQL** – Data storage and SQL analysis
-- **SQL** – Business analysis and insight generation
-- **Power BI** – Interactive dashboard and data visualization
-- **Microsoft Word** – Business report preparation
-- **PDF** – Final project documentation
+| Feature Group | Description |
+|---|---|
+| Customer demographics | Age and gender, used for segmentation and age-group analysis |
+| Product details | Product, category, size, color, and season |
+| Transaction details | Purchase amount, payment method, and shipping type |
+| Customer behavior | Subscription status, previous purchases, and purchase frequency |
+| Promotions | Discount usage |
+| Feedback | Review ratings |
 
 ---
 
-## Project Workflow
+## Tools and Technologies
 
-### 1. Data Loading
+| Tool | Purpose |
+|---|---|
+| **Python** | Data loading, cleaning, feature engineering, and exploratory analysis |
+| **Pandas** | Data manipulation and analysis |
+| **MySQL** | Data storage and querying |
+| **SQL** | Business analysis and insight generation |
+| **Power BI** | Interactive dashboard and data visualization |
+| **Microsoft Word / PDF** | Business report preparation and final documentation |
 
-The dataset was loaded into Python using Pandas.
+---
 
-Initial exploration was performed to understand:
+## Methodology
 
-- Dataset structure
-- Data types
-- Statistical summaries
-- Missing values
-- Data consistency
+### 1. Data Loading and Inspection
+
+The dataset was loaded into Python with Pandas and inspected for structure, data types, statistical summaries, missing values, and overall consistency.
 
 ### 2. Exploratory Data Analysis
 
-EDA was performed to understand:
+EDA was used to understand customer demographics, purchase patterns, product categories, subscription behavior, payment preferences, review ratings, and discount usage.
 
-- Customer demographics
-- Purchase patterns
-- Product categories
-- Subscription behavior
-- Payment preferences
-- Review ratings
-- Discount usage
+### 3. Data Cleaning and Feature Engineering
 
-### 3. Data Cleaning
+- Imputed missing review ratings using the **median rating of each product category**
+- Standardized column names
+- Verified data consistency
+- Created **customer age groups**
+- Created **purchase-frequency features**
+- Removed redundant columns
 
-The dataset was cleaned and prepared for analysis.
+### 4. MySQL Integration and SQL Analysis
 
-Key steps included:
+The cleaned DataFrame was loaded into MySQL, where SQL queries were used to answer targeted business questions:
 
-- Handling missing review ratings
-- Standardizing column names
-- Checking data consistency
-- Creating customer age groups
-- Creating purchase-frequency features
-- Removing redundant columns
-
-Missing review ratings were imputed using the median rating of the respective product category.
-
-### 4. MySQL Integration
-
-The cleaned Pandas DataFrame was loaded into MySQL for structured SQL analysis.
-
-SQL analysis included:
-
-- Revenue by gender
-- High-spending discount users
-- Top-rated products
-- Shipping-type comparison
-- Subscribers vs. non-subscribers
-- Discount-dependent products
-- Customer segmentation
-- Top products by category
-- Repeat buyers and subscriptions
-- Revenue by age group
+| Analysis | Focus |
+|---|---|
+| Revenue by gender | Compares total revenue across gender groups |
+| High-spending discount users | Identifies customers who use discounts yet still spend heavily |
+| Top-rated products | Highlights products with the strongest review ratings |
+| Shipping-type comparison | Compares purchasing behavior across shipping options |
+| Subscribers vs. non-subscribers | Contrasts spending between the two groups |
+| Discount-dependent products | Finds products that rely most on discounts |
+| Customer segmentation | Groups customers by purchase behavior |
+| Top products by category | Ranks leading products within each category |
+| Repeat buyers and subscriptions | Explores the link between repeat purchasing and subscribing |
+| Revenue by age group | Shows which age groups contribute the most revenue |
 
 ### 5. Power BI Dashboard
 
-An interactive Power BI dashboard was created to visualize the results of the analysis.
-
-The dashboard includes:
-
-- Customer KPIs
-- Purchase amount analysis
-- Category performance
-- Subscription analysis
-- Payment method analysis
-- Top 10 products
-- Age-group purchasing behavior
-- Interactive filters
+An interactive dashboard was built on top of the MySQL data to visualize the results. See [Power BI Dashboard](#power-bi-dashboard).
 
 ### 6. Business Report
 
-The analysis was documented in a structured business report covering:
-
-- Project overview
-- Dataset description
-- Data preparation
-- Python EDA
-- SQL analysis
-- Power BI dashboard
-- Business insights
-- Business recommendations
-
-The final report was exported as a PDF for project documentation and portfolio presentation.
+Findings were documented in a structured report covering the project overview, dataset, data preparation, Python EDA, SQL analysis, dashboard, business insights, and recommendations. The report is exported as a PDF for documentation and portfolio use.
 
 ---
 
-## Key Results
+## Key Findings
 
-The analysis generated several business insights:
-
-- **Clothing** is the leading product category by purchase amount.
-- Approximately **27% of customers are subscribers**, while around 73% are non-subscribers.
-- Customer spending varies across different age groups.
-- A relatively small group of products contributes significantly to total purchase value.
-- **Credit Card** is the leading payment method in the dataset.
+- **Clothing** is the leading product category by total purchase amount.
+- **Subscription adoption is low:** roughly **27%** of customers are subscribers, while about **73%** are non-subscribers.
+- **Spending varies across age groups**, indicating that some segments are more valuable than others.
+- **Revenue is concentrated:** a relatively small group of products accounts for a significant share of total purchase value.
+- **Credit Card** is the leading payment method.
 
 ---
 
 ## Business Recommendations
 
-Based on the analysis, the project provides recommendations around:
-
-- Increasing subscription adoption
-- Developing customer loyalty programs
-- Reviewing discount strategies
-- Promoting top-rated and best-selling products
-- Targeting high-revenue customer segments
+| Recommendation | Rationale |
+|---|---|
+| **Increase subscription adoption** | With only about 27% of customers subscribed, converting existing customers is a clear growth opportunity. |
+| **Develop customer loyalty programs** | Rewarding repeat buyers can strengthen retention and customer lifetime value. |
+| **Review discount strategy** | Evaluate discount-dependent products to ensure promotions support, rather than erode, profitability. |
+| **Promote top-rated and best-selling products** | Feature proven performers in campaigns and merchandising. |
+| **Target high-revenue customer segments** | Focus marketing effort on the age groups and segments that contribute the most value. |
 
 ---
 
-## Dashboard
+## Power BI Dashboard
 
-The Power BI dashboard provides an interactive view of customer purchasing behavior.
-
-Users can explore the data using filters and analyze:
+The interactive dashboard provides a consolidated view of customer purchasing behavior. Users can apply filters to explore:
 
 - Customer and purchase KPIs
+- Purchase amount analysis
 - Category performance
 - Top 10 products
-- Subscription status
-- Payment methods
+- Subscription status analysis
+- Payment method analysis
 - Age-group purchasing behavior
 
 ---
@@ -197,95 +182,74 @@ Customer_Behavior_Analysis/
 │   └── Customer Shopping Behaviour Analysis Final Report.pdf
 │
 └── README.md
-````
+```
 
 ---
 
-## How to Run
+## Getting Started
+
+### Prerequisites
+
+- Python 3.9 or higher
+- Jupyter Notebook or JupyterLab
+- MySQL Server (8.0 or higher recommended)
+- Power BI Desktop (Windows), with [MySQL Connector/NET](https://dev.mysql.com/downloads/connector/net/) installed to connect to MySQL
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <https://github.com/kabilan-analytics/Customer_Behaviour_Analysis>
-cd Customer_Behaviour_Analysis
+git clone https://github.com/<your-username>/Customer_Behavior_Analysis.git
+cd Customer_Behavior_Analysis
 ```
 
-### 2. Install Python Libraries
+### 2. Set Up the Python Environment
 
 ```bash
+python -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
 pip install pandas numpy matplotlib seaborn sqlalchemy pymysql jupyter
 ```
 
 ### 3. Run the Python Notebook
 
-Open:
+Open `python/Cleaning_And_EDA.ipynb` and run all cells to:
 
-```text
-Cleaning_And_EDA.ipynb
-```
+- Load the dataset
+- Perform exploratory data analysis
+- Clean the data and engineer features
+- Load the cleaned data into MySQL
 
-Run the notebook to:
+> **Note:** Before running the database step, update the MySQL connection details (host, user, password, and database name) in the notebook. Avoid committing credentials to version control.
 
-* Load the dataset
-* Perform EDA
-* Clean the data
-* Create required features
-* Load the cleaned data into MySQL
+### 4. Run the SQL Analysis
 
-### 4. Run SQL Analysis
-
-Open:
-
-```text
-sql/Customer_Behaviour_Analysis_Queries.sql
-```
-
-Connect to your MySQL database and execute the queries.
+Open `sql/Customer_Behaviour_Analysis_Queries.sql` in your preferred MySQL client (for example, MySQL Workbench), connect to your database, and execute the queries.
 
 ### 5. Open the Power BI Dashboard
 
-Open:
-
-```text
-powerbi/Customer_Behaviour_Analysis.pbix
-```
-
-Update the MySQL connection if required and refresh the dataset.
+Open `powerbi/Customer_Behaviour_Analysis.pbix`. If needed, update the data source under **Home → Transform data → Data source settings**, then select **Refresh**.
 
 ### 6. View the Final Report
 
-The completed project documentation is available at:
-
-```text
-report/Customer Shopping Behaviour Analysis Final Report.pdf
-```
+The complete project documentation is available at [`report/Customer Shopping Behaviour Analysis Final Report.pdf`](report/Customer%20Shopping%20Behaviour%20Analysis%20Final%20Report.pdf).
 
 ---
 
 ## Skills Demonstrated
 
-* Python for Data Analysis
-* Pandas
-* Exploratory Data Analysis
-* Data Cleaning
-* Feature Engineering
-* MySQL
-* SQL Business Analysis
-* Power BI
-* Data Visualization
-* Business Insights
-* Business Reporting
-* End-to-End Data Analytics
+| Area | Skills |
+|---|---|
+| Data analysis | Python, Pandas, Exploratory Data Analysis, Data Cleaning, Feature Engineering |
+| Databases | MySQL, SQL Business Analysis |
+| BI and visualization | Power BI, Data Visualization |
+| Communication | Business Insights, Business Reporting, Documentation |
 
 ---
 
-## Project Outcome
+## Author
 
-This project demonstrates how raw customer transaction data can be transformed into a structured analytical solution using Python, SQL, and Power BI, followed by business-focused reporting and documentation.
+**[Your Name]**
 
-### End-to-End Workflow
-
-**Raw Dataset → Python EDA → Data Cleaning → MySQL → SQL Analysis → Power BI Dashboard → Business Insights → PDF Report**
-
-```
-```
+- LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+- GitHub: [github.com/your-username](https://github.com/your-username)
+- Email: your.email@example.com
