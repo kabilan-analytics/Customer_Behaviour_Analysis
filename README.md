@@ -198,7 +198,7 @@ Customer_Behavior_Analysis/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/Customer_Behavior_Analysis.git
+git clone https://github.com/kabilan-analytics/Customer_Behavior_Analysis.git
 cd Customer_Behavior_Analysis
 ```
 
