@@ -251,5 +251,5 @@ The complete project documentation is available at [`report/Customer Shopping Be
 **KABILAN S**
 
 - LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-- GitHub: [github.com/your-username](https://github.com/kabilan-analytics)
+- GitHub: https://github.com/kabilan-analytics
 - Email: kabik9003@gmail.com
